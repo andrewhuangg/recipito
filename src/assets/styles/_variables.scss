@@ -5,5 +5,17 @@ $fontLg: 1.25rem;
 $fontXlg: 3rem;
 
 // Light mode
+$mainLight: hsl(40, 53%, 88%);
+$secondaryLight: hsl(48, 24%, 96%);
+$fontHeadinglight: hsl(214, 28%, 42%);
+$fontLight: hsl(0, 2%, 78%);
+$buttonLight: hsl(0, 68%, 62%);
+$borderLight: hsl(179, 100%, 32%);
 
 // Dark mode
+$mainDark: hsl(217, 10%, 25%);
+$secondaryDark: hsl(219, 8%, 40%);
+$fontHeadingDark: hsl(44, 98%, 49%);
+$fontDark: hsl(0, 0%, 97%);
+$buttonDark: hsl(192, 46%, 28%);
+$borderDark: hsl(196, 23%, 40%);
