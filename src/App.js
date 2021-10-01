@@ -1,5 +1,6 @@
 import './assets/styles/styles.scss';
 import React, { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import SearchBar from './components/SearchBar';
 import RecipeItem from './components/RecipeItem';
 
@@ -21,9 +22,30 @@ const App = () => {
     setRecipes(data.hits);
   };
 
+  const recipeList = () => {
+    return (
+      <>
+        {recipes.map((rec, idx) => {
+          return (
+            <RecipeItem
+              key={uuidv4()}
+              name={rec.recipe.label}
+              image={rec.recipe.image}
+              calories={rec.recipe.calories}
+              ingredients={rec.recipe.ingredients}
+              source={rec.recipe.source}
+              url={rec.recipe.url}
+            />
+          );
+        })}
+      </>
+    );
+  };
+
   return (
     <div className='app'>
       <SearchBar />
+      {recipeList()}
     </div>
   );
 };
