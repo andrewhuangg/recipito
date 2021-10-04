@@ -7,15 +7,17 @@ import RecipeItem from './components/RecipeItem';
 const App = () => {
   const APP_ID = process.env.REACT_APP_RECIPE_ACC_ID;
   const API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
+
   const [recipes, setRecipes] = useState([]);
+  const [query, setQuery] = useState('beef');
 
   useEffect(() => {
     fetchRecipes();
-  }, []);
+  }, [query]);
 
   const fetchRecipes = async () => {
     const res = await fetch(
-      `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${API_KEY}`
+      `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${API_KEY}`
     );
 
     const data = await res.json();
@@ -24,7 +26,7 @@ const App = () => {
 
   const recipeList = () => {
     return (
-      <>
+      <div className='recipes'>
         {recipes.map((rec, idx) => {
           return (
             <RecipeItem
@@ -38,13 +40,15 @@ const App = () => {
             />
           );
         })}
-      </>
+      </div>
     );
   };
 
   return (
     <div className='app'>
-      <SearchBar />
+      <div className='topbar'>
+        <SearchBar setQuery={setQuery} />
+      </div>
       {recipeList()}
     </div>
   );

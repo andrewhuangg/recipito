@@ -1,0 +1,38 @@
+.search {
+  width: 100%;
+  margin: 3rem 0 5rem 0;
+
+  &__form {
+    min-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__input {
+    padding: 10px;
+    margin-right: 10px;
+    width: 50%;
+    border: none;
+    background-color: $secondaryLight;
+    border-radius: 10px;
+    font-size: $fontMd;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__cta {
+    padding: 10px;
+    border: none;
+    background-color: $buttonLight;
+    border-radius: 10px;
+    color: $secondaryLight;
+    cursor: pointer;
+
+    .fa-search {
+      font-size: $fontLg;
+    }
+  }
+}

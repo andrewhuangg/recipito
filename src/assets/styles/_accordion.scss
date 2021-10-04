@@ -1,0 +1,54 @@
+.accordion {
+  &__body {
+    padding: 45px;
+
+    h1 {
+      color: $fontHeadinglight;
+    }
+
+    hr {
+      width: 100%;
+      margin-left: 0;
+      border: 1px solid $borderLight;
+    }
+  }
+
+  &__container {
+    position: relative;
+    margin: 10px 10px;
+
+    &--active {
+      .accordion__content {
+        display: inline;
+      }
+    }
+  }
+
+  &__label {
+    padding: 10px 0;
+    position: relative;
+    font-size: $fontLg;
+    color: $fontHeadinglight;
+    cursor: pointer;
+
+    &::before {
+      content: '\f067';
+      position: absolute;
+      top: 50%;
+      right: -5px;
+      color: $buttonLight;
+      font-family: 'fontAwesome';
+      transform: translateY(-50%);
+    }
+  }
+
+  &__content {
+    width: 100%;
+    display: none;
+    position: relative;
+    text-align: justify;
+    font-size: $fontMd;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+  }
+}
