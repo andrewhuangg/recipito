@@ -1,14 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import IngredientList from './IngredientList';
+import AccordionContainer from './AccordionContainer';
 
 const RecipeItem = ({ name, image, calories, ingredients, source, url }) => {
-  const [toggle, setToggle] = useState(false);
-
-  const handleToggle = (e) => {
-    e.preventDefault();
-    setToggle((prev) => !prev);
-  };
-
   return (
     <div className='recipeitem accordion'>
       <div className='accordion__body'>
@@ -16,26 +10,27 @@ const RecipeItem = ({ name, image, calories, ingredients, source, url }) => {
         <img src={image} alt='recipe image' />
 
         <hr />
-
-        <div
-          className={`accordion__container ${toggle && 'accordion__container--active'}`}
-          onClick={handleToggle}
-        >
+        <AccordionContainer>
           <div className='accordion__label'>Ingredients</div>
           <div className='accordion__content'>
             <IngredientList ingredients={ingredients} />
           </div>
-        </div>
-
+        </AccordionContainer>
         <hr />
-
-        <div
-          className={`accordion__container ${toggle && 'accordion__container--active'}`}
-          onClick={handleToggle}
-        >
+        <AccordionContainer>
           <div className='accordion__label'>Calories</div>
           <div className='accordion__content'>{Math.round(calories)}</div>
-        </div>
+        </AccordionContainer>
+        <hr />
+        <AccordionContainer>
+          <div className='accordion__label'>Source</div>
+          <div className='accordion__content'>{source}</div>
+        </AccordionContainer>
+        <hr />
+        <AccordionContainer>
+          <div className='accordion__label'>Link</div>
+          <div className='accordion__content'>{url}</div>
+        </AccordionContainer>
       </div>
     </div>
   );

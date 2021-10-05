@@ -1,6 +1,7 @@
 .accordion {
   &__body {
-    padding: 45px;
+    width: 100%;
+    padding: 20px;
 
     h1 {
       color: $fontHeadinglight;
@@ -14,12 +15,17 @@
   }
 
   &__container {
-    position: relative;
     margin: 10px 10px;
+    position: relative;
 
     &--active {
       .accordion__content {
-        display: inline;
+        max-height: 500px;
+      }
+
+      .accordion__label::before {
+        content: '\f068';
+        font-family: 'fontAwesome';
       }
     }
   }
@@ -27,7 +33,7 @@
   &__label {
     padding: 10px 0;
     position: relative;
-    font-size: $fontLg;
+    font-size: $fontMd;
     color: $fontHeadinglight;
     cursor: pointer;
 
@@ -43,12 +49,15 @@
   }
 
   &__content {
+    margin-left: 5px;
     width: 100%;
-    display: none;
+    max-height: 0;
     position: relative;
     text-align: justify;
-    font-size: $fontMd;
+    font-size: $fontSm;
     overflow: hidden;
-    transition: 0.5s ease-in-out;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: max-height 500ms ease-in-out;
   }
 }
