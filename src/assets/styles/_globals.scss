@@ -35,3 +35,40 @@ li {
   margin: 0;
   list-style: none;
 }
+
+.theme {
+  width: 40px;
+  height: 40px;
+  margin-left: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: $fontLg;
+  color: $mainLight;
+  background-color: $mainDark;
+  border-radius: 50%;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+
+  @include breakpoint-down(small) {
+    width: 37px;
+    height: 37px;
+    font-size: $fontMd;
+  }
+
+  &::before {
+    content: '\f186';
+    font-family: 'fontAwesome';
+  }
+}
+
+.dark {
+  .theme {
+    color: $mainDark;
+    background-color: $secondaryLight;
+
+    &::before {
+      content: '\f185';
+    }
+  }
+}

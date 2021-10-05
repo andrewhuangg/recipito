@@ -10,6 +10,7 @@ const App = () => {
 
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState('beef');
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     fetchRecipes();
@@ -24,10 +25,21 @@ const App = () => {
     setRecipes(data.hits);
   };
 
+  const handleDarkMode = (e) => {
+    e.preventDefault();
+    setIsDarkMode((prevMode) => !prevMode);
+    const body = document.querySelector('body');
+    if (!isDarkMode) {
+      body.classList.add('dark');
+    } else {
+      body.classList.remove('dark');
+    }
+  };
+
   const recipeList = () => {
     return (
       <div className='recipes'>
-        {recipes.map((rec, idx) => {
+        {recipes.map((rec) => {
           return (
             <RecipeItem
               key={uuidv4()}
@@ -47,7 +59,7 @@ const App = () => {
   return (
     <div className='app'>
       <div className='topbar'>
-        <SearchBar setQuery={setQuery} />
+        <SearchBar setQuery={setQuery} handleDarkMode={handleDarkMode} />
       </div>
       {recipeList()}
     </div>

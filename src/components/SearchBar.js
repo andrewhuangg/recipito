@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SearchBar = ({ setQuery }) => {
+const SearchBar = ({ setQuery, handleDarkMode }) => {
   const [search, setSearch] = useState('');
 
   const handleSearch = (e) => {
@@ -23,9 +23,12 @@ const SearchBar = ({ setQuery }) => {
           onChange={handleSearch}
           placeholder='type an ingredient in... beef'
         />
-        <button className='search__cta' type='submit'>
-          <i className='fas fa-search' />
-        </button>
+        <div className='search__wrapper'>
+          <button className='search__cta' type='submit'>
+            <i className='fas fa-search' />
+          </button>
+          <div className='theme' onClick={handleDarkMode} />
+        </div>
       </form>
     </div>
   );

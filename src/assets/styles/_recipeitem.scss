@@ -2,6 +2,22 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+
+  @include breakpoint-up(large) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include breakpoint-down(medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint-down(smedium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint-down(small) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .recipeitem {
@@ -15,9 +31,68 @@
   border-radius: 10px;
   color: $fontLight;
 
-  img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+  @include breakpoint-up(large) {
+    width: 315px;
+  }
+
+  @include breakpoint-down(medium) {
+    width: 400px;
+  }
+
+  @include breakpoint-down(smedium) {
+    width: 350px;
+  }
+
+  &__wrapper {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+
+    @include breakpoint-up(large) {
+      margin-bottom: 1rem;
+    }
+
+    @include breakpoint-down(medium) {
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+
+      @include breakpoint-up(large) {
+        font-size: 1.5rem;
+      }
+
+      @include breakpoint-down(medium) {
+        font-size: $fontLg;
+      }
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+
+      @include breakpoint-up(large) {
+        width: 175px;
+        height: 175px;
+      }
+
+      @include breakpoint-down(medium) {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  }
+}
+
+.dark {
+  .recipeitem {
+    color: $fontDark;
+    background-color: $secondaryDark;
+    box-shadow: 0px 5px 10px rgba(247, 246, 241, 0.3);
   }
 }

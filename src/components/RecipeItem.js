@@ -6,10 +6,11 @@ const RecipeItem = ({ name, image, calories, ingredients, source, url }) => {
   return (
     <div className='recipeitem accordion'>
       <div className='accordion__body'>
-        <h1>{name}</h1>
-        <img src={image} alt='recipe image' />
+        <div className='recipeitem__wrapper'>
+          <h1>{name}</h1>
+          <img src={image} alt='recipe image' />
+        </div>
 
-        <hr />
         <AccordionContainer>
           <div className='accordion__label'>Ingredients</div>
           <div className='accordion__content'>

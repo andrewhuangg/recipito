@@ -2,24 +2,72 @@
   width: 100%;
   margin: 3rem 0 5rem 0;
 
+  @include breakpoint-up(large) {
+    margin: 3rem 0;
+  }
+
+  @include breakpoint-down(medium) {
+    margin: 3rem 0;
+  }
+
   &__form {
     min-height: 10vh;
     display: flex;
+    flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+
+    @include breakpoint-down(small) {
+      flex-flow: column nowrap;
+    }
   }
 
   &__input {
     padding: 10px;
     margin-right: 10px;
     width: 50%;
+    color: $fontLight;
     border: none;
     background-color: $secondaryLight;
     border-radius: 10px;
     font-size: $fontMd;
 
+    @include breakpoint-up(large) {
+      width: 850px;
+    }
+
+    @include breakpoint-down(medium) {
+      width: 70%;
+    }
+
+    @include breakpoint-down(smedium) {
+      width: 75%;
+    }
+
+    @include breakpoint-down(small) {
+      margin-right: 0;
+      width: 80%;
+      font-size: $fontSm;
+    }
+
     &:focus {
       outline: none;
+    }
+
+    &::placeholder {
+      color: $fontHeadinglight;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-top: 0;
+    align-items: center;
+    justify-content: center;
+
+    @include breakpoint-down(small) {
+      margin-top: 1rem;
     }
   }
 
@@ -33,6 +81,28 @@
 
     .fa-search {
       font-size: $fontLg;
+
+      @include breakpoint-down(small) {
+        font-size: $fontMd;
+      }
+    }
+  }
+}
+
+.dark {
+  .search {
+    &__input {
+      background-color: $secondaryDark;
+      color: $fontDark;
+
+      &::placeholder {
+        color: $fontHeadingDark;
+      }
+    }
+
+    &__cta {
+      background-color: $buttonDark;
+      color: $secondaryLight;
     }
   }
 }

@@ -1,2 +1,7 @@
 .ingredientlist {
+  &__ul {
+    li:not(:last-child) {
+      margin-bottom: 0.25rem;
+    }
+  }
 }
